@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.png"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/window.css" />
+    <link rel="stylesheet" href="styles/terminal.css" />
+    <link rel="stylesheet" href="styles/prompt.css" />
+    <link rel="stylesheet" href="styles/output.css" />
+
+    <title>Endless</title>
+  </head>
+  <body>
+    <div id="scanlines"></div>
+
+    <div id="window">
+      <div id="window-title">
+        <div id="window-quote"></div>
+        <div id="window-clock"></div>
+      </div>
+
+      <div id="window-content">
+        <div id="window-gif"></div>
+
+        <div id="terminal"></div>
+      </div>
+    </div>
+
+    <script src="src/constants.js"></script>
+    <script src="src/globalData.js"></script>
+    <script src="src/localStorageUtils.js"></script>
+    <script src="src/utils.js"></script>
+    <script src="src/clock.js"></script>
+    <script src="src/setFunctions.js"></script>
+    <script src="src/outputFunctions.js"></script>
+    <script src="src/commands.js"></script>
+    <script src="src/main.js"></script>
+  </body>
+</html>

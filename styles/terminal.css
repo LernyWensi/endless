@@ -1,0 +1,23 @@
+#terminal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: clip;
+  padding: 17px;
+  padding-right: 13px;
+}
+
+#terminal::-webkit-scrollbar {
+  background-color: transparent;
+  width: 4px;
+}
+
+#terminal::-webkit-scrollbar-button {
+  background-color: transparent;
+  display: none;
+}
+
+#terminal::-webkit-scrollbar-thumb {
+  background-color: var(--color-additional);
+}

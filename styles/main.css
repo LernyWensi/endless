@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "ms98";
+  src: url("../assets/fonts/ms98.ttf");
+}
+
+:root {
+  --color-primary: #181825;
+  --color-secondary: #1e1e2e;
+  --color-additional: #c8d6f4;
+  --color-highlight-primary: #cb99c3;
+  --color-highlight-secondary: #5bace6;
+  --color-highlight-additional: #cb6790;
+
+  --color-error: #ff625e;
+  --color-warning: #fbc02d;
+  --color-success: #88e3a1;
+
+  --font-family: "ms98";
+  --font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  letter-spacing: 2px;
+  line-height: 130%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../assets/backgrounds/village.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#scanlines {
+  background-image: url("../assets/scanlines.png");
+  background-repeat: repeat;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  animation: scanAnim 0.6s infinite;
+  animation-timing-function: linear;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+@keyframes scanAnim {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 0px 8px;
+  }
+}

@@ -67,7 +67,7 @@ const helpText = {
   },
 
   REMOVE_CATEGORY: {
-    usage: "rl {category}",
+    usage: "rc {category}",
     flags: {},
   },
 

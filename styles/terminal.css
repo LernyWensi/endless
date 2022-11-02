@@ -1,0 +1,121 @@
+.prompt {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.prompt-cursor {
+    color: var(--color-highlight-additional);
+}
+
+#prompt-input {
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--color-highlight-secondary);
+}
+
+.prompt-replaced-input {
+    color: var(--color-highlight-primary);
+    white-space: nowrap;
+    overflow-y: scroll;
+}
+
+.prompt-replaced-input::-webkit-scrollbar {
+    display: none;
+}
+
+.line {
+    color: var(--color-additional);
+    margin-bottom: 2px;
+}
+
+.bookmarks {
+    padding: 10px 0;
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(4, calc(25% - 10px));
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.category {
+    padding: 5px 0;
+    border: var(--color-highlight-primary) 2px ridge;
+}
+
+.category-title {
+    color: var(--color-highlight-secondary);
+    text-align: center;
+    border-bottom: var(--color-highlight-primary) 2px ridge;
+    margin: 0 10px 5px 10px;
+}
+
+.category-links {
+    display: flex;
+    flex-direction: column;
+    height: calc(24.8px * 5);
+    overflow-y: scroll;
+    overflow-x: clip;
+}
+
+.category-links::-webkit-scrollbar {
+    background-color: transparent;
+    width: 2px;
+}
+
+.category-links::-webkit-scrollbar-button {
+    display: none;
+}
+
+.category-links::-webkit-scrollbar-thumb {
+    background-color: var(--color-highlight-secondary);
+}
+
+.category-link {
+    color: var(--color-highlight-primary);
+    text-decoration: none;
+    width: calc(100% - 2px);
+    overflow-x: clip;
+    transition: 0.2s;
+    width: 100%;
+    padding: 0 10px;
+    border-top: 2px ridge transparent;
+    border-bottom: 2px ridge transparent;
+}
+
+.category-link:hover {
+    color: var(--color-highlight-additional);
+    background-color: var(--color-highlight-primary-alpha);
+    border-top: 2px ridge var(--color-highlight-additional);
+    border-bottom: 2px ridge var(--color-highlight-additional);
+}
+
+.option-label {
+    color: var(--color-highlight-primary);
+}
+
+.option-input {
+    appearance: none;
+}
+
+.option-input:checked + .option-label {
+    color: var(--color-highlight-additional);
+}
+
+.option-input::before {
+    content: ">";
+    color: var(--color-highlight-additional);
+    transition: 0.2s;
+}
+
+.option-input:checked::before {
+    outline: none;
+    content: ">>";
+    color: var(--color-highlight-secondary);
+}
+
+.option-input:focus {
+    outline: none;
+}

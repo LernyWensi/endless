@@ -1,0 +1,136 @@
+/* General */
+.terminal-output {
+  margin: 6px 0;
+}
+
+.output-symbol {
+  color: var(--color-highlight-additional);
+  margin-right: 5px;
+}
+
+.text {
+  color: var(--color-additional);
+}
+
+/* Output text */
+.output-text {
+  display: flex;
+}
+
+/* Output list */
+.output-list {
+  list-style: none;
+}
+
+.list-item {
+  display: flex;
+}
+
+.list-item::before {
+  content: "\2022";
+  margin-right: 5px;
+  color: var(--color-highlight-secondary);
+}
+
+/* Output help */
+.output-help {
+  display: flex;
+}
+
+.flag-list {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.help-flag {
+  display: flex;
+}
+
+.help-flag::before {
+  content: "\2022";
+  margin-right: 5px;
+  color: var(--color-highlight-secondary);
+}
+
+/* Output bookmarks */
+.output-bookmarks {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  column-gap: 2.6666666667%; /* LOL */
+  row-gap: 16.2806666667px; /* LOL x2 */
+}
+
+.bookmarks-category {
+  flex-basis: 23%;
+  max-width: 23%;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-title {
+  width: 100%;
+  color: var(--color-highlight-primary);
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+.category-links {
+  list-style: none;
+  overflow-y: scroll;
+  overflow-x: clip;
+  height: 152px;
+  width: 100%;
+  border-bottom: 4px var(--color-highlight-primary) solid;
+  border-top: 4px var(--color-highlight-primary) solid;
+  padding: 3px 0;
+}
+
+.category-links::-webkit-scrollbar {
+  background-color: transparent;
+  width: 4px;
+}
+
+.category-links::-webkit-scrollbar-button {
+  background-color: transparent;
+  display: none;
+}
+
+.category-links::-webkit-scrollbar-thumb {
+  background-color: var(--color-highlight-primary);
+}
+
+.links-item {
+  height: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.list-item pre {
+  color: var(--color-additional);
+}
+
+.links-item::after {
+  content: "<";
+  color: var(--color-highlight-additional);
+  opacity: 0;
+  margin-left: 3px;
+}
+
+.links-item:hover .item-link {
+  color: var(--color-highlight-additional);
+}
+
+.links-item:hover::after {
+  opacity: 1;
+}
+
+.links-item:hover .item-link {
+  text-decoration: underline;
+}
+
+.item-link {
+  color: var(--color-additional);
+  text-decoration: none;
+  display: block;
+}

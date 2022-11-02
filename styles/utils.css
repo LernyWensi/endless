@@ -1,0 +1,41 @@
+.pointer-events-none {
+    pointer-events: none;
+}
+
+.padding-left {
+    padding-left: 20px;
+}
+
+.padding-left-2 {
+    padding-left: 40px;
+}
+
+.primary {
+    color: var(--color-highlight-primary) !important;
+}
+
+.secondary {
+    color: var(--color-highlight-secondary) !important;
+}
+
+.additional {
+    color: var(--color-highlight-additional) !important;
+}
+
+.error {
+    color: var(--color-error) !important;
+}
+
+.warning {
+    color: var(--color-warning) !important;
+}
+
+.success {
+    color: var(--color-success) !important;
+}
+
+.help-title {
+    width: max-content !important;
+    margin-bottom: 2px !important;
+    border-bottom: var(--color-highlight-secondary) 2px ridge !important;
+}

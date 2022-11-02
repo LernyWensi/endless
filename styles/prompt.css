@@ -1,0 +1,34 @@
+.prompt {
+  display: flex;
+  align-items: start;
+  margin: 6px 0;
+}
+
+.prompt-title {
+  display: flex;
+  align-items: center;
+}
+
+.prompt-symbol {
+  color: var(--color-success);
+  height: 14px;
+}
+
+.prompt-cursor {
+  margin: 0 0.6em 0 0.3em;
+  color: var(--color-highlight-primary);
+}
+
+.prompt-text {
+  color: var(--color-additional);
+
+  max-width: 100%;
+}
+
+#prompt-input {
+  width: 100%;
+  color: var(--color-additional);
+  outline: none;
+  border: none;
+  background-color: transparent;
+}

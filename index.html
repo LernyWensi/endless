@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link
+            rel="shortcut icon"
+            href="assets/icons/favicon.png"
+            type="image/x-icon"
+        />
+
+        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="styles/animations.css" />
+        <link rel="stylesheet" href="styles/window.css" />
+        <link rel="stylesheet" href="styles/terminal.css" />
+        <link rel="stylesheet" href="styles/utils.css" />
+
+        <script src="src/constants.js" defer></script>
+        <script src="src/globalData.js" defer></script>
+        <script src="src/localStorageUtils.js" defer></script>
+        <script src="src/utils.js" defer></script>
+        <script src="src/commands.js" defer></script>
+        <script src="src/setFunctions.js" defer></script>
+        <script src="src/outputFunctions.js" defer></script>
+        <script src="src/clock.js" defer></script>
+        <script src="src/main.js" defer></script>
+
+        <title>Endless</title>
+    </head>
+    <body>
+        <div id="scanlines"></div>
+
+        <div id="window">
+            <div id="window-title">
+                <p id="window-quote">Loading...</p>
+                <p id="window-clock">Loading...</p>
+            </div>
+
+            <div id="window-main">
+                <div id="window-gif"></div>
+                <div id="window-terminal"></div>
+            </div>
+        </div>
+    </body>
+</html>

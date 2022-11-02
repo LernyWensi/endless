@@ -11,6 +11,15 @@
 -   https://github.com/Jaredk3nt/HomeTerm 💖
 -   https://github.com/jamesNWT/StartPage2 💖
 
+## 🔰 **Installation**
+
+1.  [Download](https://github.com/LernyWensi/Endless/archive/refs/heads/main.zip) endless from github
+2.  Unzip Endless and put it somewhere safe
+3.  Go to your browser extensions settings
+4.  Turn on **developer mode**
+5.  Click **load unpacked**
+6.  Select Endless folder
+
 ## ❓**Help**
 
 _Basic info about commands. You can get more in extension by use_ `h` _command._

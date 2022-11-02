@@ -13,7 +13,7 @@
 
 ## 🔰 **Installation**
 
-1.  [Download](https://github.com/LernyWensi/Endless/archive/refs/heads/main.zip) endless from github
+1.  [Download](https://github.com/LernyWensi/Endless/archive/refs/heads/main.zip) Endless from github
 2.  Unzip Endless and put it somewhere safe
 3.  Go to your browser extensions settings
 4.  Turn on **developer mode**

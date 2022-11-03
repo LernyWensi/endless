@@ -1,6 +1,6 @@
 # 🌌 **Endless**
 
--   Endless is a browser extension that change the start page and new tabs
+-   Endless is a browser extension that change the startpage and new tabs
 -   It's terminal-like so some things may be inconvenient for the sake of the look or feel of using the terminal
 -   Written while learning web development, so there are bugs
 

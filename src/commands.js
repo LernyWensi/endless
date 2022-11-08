@@ -25,11 +25,19 @@ function h(parameters, flags) {
     Object.entries(help).forEach(([key, value]) => {
         outputLine(
             key.replaceAll("_", " ").toLowerCase(),
-            "secondary help-title"
+            "secondary help-title",
         );
         outputCommandHelpText(value);
         outputLine("<br>");
     });
+}
+
+function s(parameters, flags) {
+    if (!checkCommand("s", flags, parameters, 1, 1, false)) return;
+
+    const [query] = parameters;
+
+    window.open(`https://www.google.com/search?q=${query}`);
 }
 
 function cl(parameters, flags) {
@@ -58,7 +66,7 @@ function cl(parameters, flags) {
         outputMultipleLines([
             `${coloredSpan(
                 "created new category",
-                "success"
+                "success",
             )}: ${categoryName}`,
             `${coloredSpan("created new link", "success")}:`,
         ]);
@@ -67,7 +75,7 @@ function cl(parameters, flags) {
                 `${coloredSpan("name", "primary")}: ${linkName}`,
                 `${coloredSpan("url", "primary")}: ${linkUrl}`,
             ],
-            "padding-left"
+            "padding-left",
         );
 
         return;
@@ -75,7 +83,7 @@ function cl(parameters, flags) {
 
     const newLink =
         targetCategory.links.find(({ name }) =>
-            lowerCaseCompare(name, linkName)
+            lowerCaseCompare(name, linkName),
         ) || {};
 
     if (!isEmptyObject(newLink)) {
@@ -95,7 +103,7 @@ function cl(parameters, flags) {
             `${coloredSpan("name", "primary")}: ${linkName}`,
             `${coloredSpan("url", "primary")}: ${linkUrl}`,
         ],
-        "padding-left"
+        "padding-left",
     );
 }
 
@@ -108,16 +116,16 @@ async function el(parameters, flags) {
         outputLine(
             `second parameter should be ${coloredSpan(
                 "'name'",
-                "secondary"
+                "secondary",
             )} or ${coloredSpan("'url'", "secondary")}`,
-            "error"
+            "error",
         );
         return;
     }
 
     const targetLinks = bookmarks
         .map((category) =>
-            category.links.find(({ name }) => lowerCaseCompare(name, linkName))
+            category.links.find(({ name }) => lowerCaseCompare(name, linkName)),
         )
         .filter(Boolean);
 
@@ -139,18 +147,18 @@ async function el(parameters, flags) {
             ]);
 
             const options = bookmarks.filter((category) =>
-                targetLinks.some((link) => category.links.includes(link))
+                targetLinks.some((link) => category.links.includes(link)),
             );
 
             const targetCategory = await outputOptions(
                 options.map((option) => ({
                     payload: option,
                     name: option.name,
-                }))
+                })),
             );
 
             const targetLink = targetCategory.links.find(({ name }) =>
-                lowerCaseCompare(name, linkName)
+                lowerCaseCompare(name, linkName),
             );
 
             oldValue = targetLink[parameterToEdit];
@@ -165,14 +173,14 @@ async function el(parameters, flags) {
             `link ${coloredSpan(linkName, "secondary")} edited`,
             `parameter ${coloredSpan(parameterToEdit, "secondary")} changed`,
         ],
-        "success"
+        "success",
     );
     outputMultipleLines(
         [
             `${coloredSpan("from", "primary")}: ${oldValue}`,
             `${coloredSpan("to", "primary")}: ${newValue}`,
         ],
-        "padding-left"
+        "padding-left",
     );
 }
 
@@ -183,7 +191,7 @@ async function dl(parameters, flags) {
 
     const targetLinks = bookmarks
         .map((category) =>
-            category.links.find(({ name }) => lowerCaseCompare(name, linkName))
+            category.links.find(({ name }) => lowerCaseCompare(name, linkName)),
         )
         .filter(Boolean);
 
@@ -195,10 +203,10 @@ async function dl(parameters, flags) {
 
         case 1:
             targetCategory = bookmarks.find((category) =>
-                category.links.includes(targetLinks[0])
+                category.links.includes(targetLinks[0]),
             );
             targetCategory.links = targetCategory.links.filter(
-                (link) => link !== targetLinks[0]
+                (link) => link !== targetLinks[0],
             );
             break;
 
@@ -209,22 +217,22 @@ async function dl(parameters, flags) {
             ]);
 
             const options = bookmarks.filter((category) =>
-                targetLinks.some((link) => category.links.includes(link))
+                targetLinks.some((link) => category.links.includes(link)),
             );
 
             targetCategory = await outputOptions(
                 options.map((option) => ({
                     payload: option,
                     name: option.name,
-                }))
+                })),
             );
 
             const targetLink = targetCategory.links.find(({ name }) =>
-                lowerCaseCompare(name, linkName)
+                lowerCaseCompare(name, linkName),
             );
 
             targetCategory.links = targetCategory.links.filter(
-                (link) => link !== targetLink
+                (link) => link !== targetLink,
             );
             break;
     }
@@ -234,9 +242,9 @@ async function dl(parameters, flags) {
     outputLine(
         `link ${coloredSpan(linkName, "secondary")} deleted from ${coloredSpan(
             targetCategory.name,
-            "secondary"
+            "secondary",
         )}`,
-        "success"
+        "success",
     );
 }
 
@@ -245,14 +253,14 @@ async function ol(parameters, flags) {
 
     if (flags.includes("-tdt")) {
         setOpenLinkDefaultTarget(
-            openLinkDefaultTarget === "_blank" ? "_self" : "_blank"
+            openLinkDefaultTarget === "_blank" ? "_self" : "_blank",
         );
         outputLine(
             `default target location changed to ${coloredSpan(
                 openLinkDefaultTarget,
-                "secondary"
+                "secondary",
             )}`,
-            "success"
+            "success",
         );
     }
 
@@ -260,8 +268,8 @@ async function ol(parameters, flags) {
         outputLine(
             `current default target: ${coloredSpan(
                 openLinkDefaultTarget,
-                "secondary"
-            )}`
+                "secondary",
+            )}`,
         );
     }
 
@@ -271,7 +279,7 @@ async function ol(parameters, flags) {
 
     const targetLinks = bookmarks
         .map((category) =>
-            category.links.find(({ name }) => lowerCaseCompare(name, linkName))
+            category.links.find(({ name }) => lowerCaseCompare(name, linkName)),
         )
         .filter(Boolean);
 
@@ -291,18 +299,18 @@ async function ol(parameters, flags) {
             ]);
 
             const options = bookmarks.filter((category) =>
-                targetLinks.some((link) => category.links.includes(link))
+                targetLinks.some((link) => category.links.includes(link)),
             );
 
             targetCategory = await outputOptions(
                 options.map((option) => ({
                     payload: option,
                     name: option.name,
-                }))
+                })),
             );
 
             linkToOpen = targetCategory.links.find(({ name }) =>
-                lowerCaseCompare(name, linkName)
+                lowerCaseCompare(name, linkName),
             );
             break;
     }
@@ -311,7 +319,7 @@ async function ol(parameters, flags) {
     setTimeout(() => {
         window.open(
             linkToOpen.url,
-            flags.includes("-nt") ? "_blank" : openLinkDefaultTarget
+            flags.includes("-nt") ? "_blank" : openLinkDefaultTarget,
         );
     }, 1000);
 }
@@ -338,7 +346,7 @@ function cc(parameters, flags) {
 
     outputLine(
         `created new category: ${coloredSpan(newCategoryName, "secondary")}`,
-        "success"
+        "success",
     );
 }
 
@@ -367,9 +375,9 @@ function ccn(parameters, flags) {
     outputLine(
         `category ${coloredSpan(
             currentName,
-            " secondary"
+            " secondary",
         )} changed to ${coloredSpan(newName, "secondary")}`,
-        "success"
+        "success",
     );
 }
 
@@ -388,13 +396,13 @@ function dc(parameters, flags) {
     }
 
     bookmarks = bookmarks.filter(
-        ({ name }) => !lowerCaseCompare(name, categoryName)
+        ({ name }) => !lowerCaseCompare(name, categoryName),
     );
     lsWriteBookmarks();
 
     outputLine(
         `category ${coloredSpan(categoryName, "secondary")} deleted`,
-        "success"
+        "success",
     );
 }
 
@@ -405,14 +413,14 @@ function b(parameters, flags) {
 
     if (flags.includes("-tdt")) {
         setBookmarksDefaultTarget(
-            bookmarksDefaultTarget === "_blank" ? "_self" : "_blank"
+            bookmarksDefaultTarget === "_blank" ? "_self" : "_blank",
         );
         outputLine(
             `default target location changed to ${coloredSpan(
                 bookmarksDefaultTarget,
-                "secondary"
+                "secondary",
             )}`,
-            "success"
+            "success",
         );
     }
 
@@ -420,8 +428,8 @@ function b(parameters, flags) {
         outputLine(
             `current default target: ${coloredSpan(
                 bookmarksDefaultTarget,
-                "secondary"
-            )}`
+                "secondary",
+            )}`,
         );
     }
 
@@ -438,7 +446,7 @@ function b(parameters, flags) {
     }
 
     const targetCategory = bookmarks.filter(({ name }) =>
-        lowerCaseCompare(name, categoryName)
+        lowerCaseCompare(name, categoryName),
     );
 
     if (targetCategory.length === 0) {
@@ -457,9 +465,9 @@ function sun(parameters, flags) {
     outputLine(
         `user name ${coloredSpan(
             userName,
-            "secondary"
+            "secondary",
         )} changed to ${coloredSpan(newUserName, "secondary")}`,
-        "success"
+        "success",
     );
     setUserName(newUserName);
 }
@@ -472,17 +480,17 @@ function sb(parameters, flags) {
     if (flags.includes("-ab")) {
         outputLine("defaults:");
         Object.keys(backgrounds).forEach((background) =>
-            outputLine(background.toLowerCase(), "padding-left secondary")
+            outputLine(background.toLowerCase(), "padding-left secondary"),
         );
 
         if (isEmptyObject(userBackgrounds)) {
             outputLine(
-                `user backgrounds: ${coloredSpan("empty", "secondary")}`
+                `user backgrounds: ${coloredSpan("empty", "secondary")}`,
             );
         } else {
             outputLine("user backgrounds:");
             Object.keys(userBackgrounds).forEach((background) =>
-                outputLine(background, "padding-left secondary")
+                outputLine(background, "padding-left secondary"),
             );
         }
     }
@@ -491,9 +499,9 @@ function sb(parameters, flags) {
         outputLine(
             `you have to provide ${coloredSpan(
                 "name",
-                "secondary"
+                "secondary",
             )} or ${coloredSpan("'link' url", "secondary")}`,
-            "error"
+            "error",
         );
         return;
     }
@@ -507,10 +515,10 @@ function sb(parameters, flags) {
     if (backgroundName) {
         const targetBackground =
             Object.keys(userBackgrounds).find((background) =>
-                lowerCaseCompare(background, backgroundName)
+                lowerCaseCompare(background, backgroundName),
             ) ||
             Object.keys(backgrounds).find((background) =>
-                lowerCaseCompare(background, backgroundName)
+                lowerCaseCompare(background, backgroundName),
             ) ||
             null;
 
@@ -520,12 +528,12 @@ function sb(parameters, flags) {
         }
 
         setBackground(
-            backgrounds[targetBackground] || userBackgrounds[targetBackground]
+            backgrounds[targetBackground] || userBackgrounds[targetBackground],
         );
 
         outputLine(
             `background ${coloredSpan(backgroundName, "secondary")} applied`,
-            "success"
+            "success",
         );
     }
 }
@@ -542,10 +550,10 @@ function sub(parameters, flags) {
 
     let newUserBackground =
         Object.keys(userBackgrounds).find((background) =>
-            lowerCaseCompare(background, backgroundName)
+            lowerCaseCompare(background, backgroundName),
         ) ||
         Object.keys(backgrounds).find((background) =>
-            lowerCaseCompare(background, backgroundName)
+            lowerCaseCompare(background, backgroundName),
         ) ||
         null;
 
@@ -559,7 +567,7 @@ function sub(parameters, flags) {
 
     outputLine(
         `new background ${coloredSpan(backgroundName, "secondary")} saved`,
-        "success"
+        "success",
     );
 }
 
@@ -570,7 +578,7 @@ function dub(parameters, flags) {
 
     const targetBackground =
         Object.keys(userBackgrounds).find((background) =>
-            lowerCaseCompare(background, backgroundName)
+            lowerCaseCompare(background, backgroundName),
         ) || null;
 
     if (targetBackground === null) {
@@ -583,7 +591,7 @@ function dub(parameters, flags) {
 
     outputLine(
         `background ${coloredSpan(backgroundName, "secondary")} deleted`,
-        "success"
+        "success",
     );
 }
 
@@ -596,7 +604,7 @@ function sg(parameters, flags) {
         outputLine("defaults:");
         Object.keys(gifs).forEach(
             (gif) => outputLine(gif.toLowerCase(), "padding-left secondary"),
-            "padding-left secondary"
+            "padding-left secondary",
         );
 
         if (isEmptyObject(userGifs)) {
@@ -604,7 +612,7 @@ function sg(parameters, flags) {
         } else {
             outputLine("user gifs:");
             Object.keys(userGifs).forEach((gif) =>
-                outputLine(gif, "padding-left secondary")
+                outputLine(gif, "padding-left secondary"),
             );
         }
     }
@@ -613,9 +621,9 @@ function sg(parameters, flags) {
         outputLine(
             `you have to provide ${coloredSpan(
                 "name",
-                "secondary"
+                "secondary",
             )} or ${coloredSpan("'link' url", "secondary")}`,
-            "error"
+            "error",
         );
         return;
     }
@@ -629,7 +637,7 @@ function sg(parameters, flags) {
     if (gifName) {
         const targetGif =
             Object.keys(userGifs).find((gif) =>
-                lowerCaseCompare(gif, gifName)
+                lowerCaseCompare(gif, gifName),
             ) ||
             Object.keys(gifs).find((gif) => lowerCaseCompare(gif, gifName)) ||
             null;
@@ -643,7 +651,7 @@ function sg(parameters, flags) {
 
         outputLine(
             `gif ${coloredSpan(gifName, "secondary")} applied`,
-            "success"
+            "success",
         );
     }
 }
@@ -720,10 +728,10 @@ function ta(parameters, flags) {
 
     if (flags.includes("-csl")) {
         outputLine(
-            `line state: ${coloredSpan(lineAnimationState, "secondary")}`
+            `line state: ${coloredSpan(lineAnimationState, "secondary")}`,
         );
         outputLine(
-            `prompt state: ${coloredSpan(promptAnimationState, "secondary")}`
+            `prompt state: ${coloredSpan(promptAnimationState, "secondary")}`,
         );
     }
 
@@ -733,9 +741,9 @@ function ta(parameters, flags) {
         outputLine(
             `line animation state changed from ${coloredSpan(
                 oldState,
-                "secondary"
+                "secondary",
             )} to ${coloredSpan(lineAnimationState, "secondary")}`,
-            "success"
+            "success",
         );
         return;
     }
@@ -746,9 +754,9 @@ function ta(parameters, flags) {
         outputLine(
             `prompt animation state changed from ${coloredSpan(
                 oldState,
-                "secondary"
+                "secondary",
             )} to ${coloredSpan(promptAnimationState, "secondary")}`,
-            "success"
+            "success",
         );
         return;
     }

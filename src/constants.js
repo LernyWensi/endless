@@ -38,6 +38,13 @@ const help = {
         flags: "command doesn't have flags",
     },
 
+    SEARCH: {
+        usage: 's "(query)"',
+        description: "use to search something",
+        parameters: "command doesn't have parameters",
+        flags: "command doesn't have flags",
+    },
+
     CREATE_LINK: {
         usage: "cl (category name) (link name) (link url)",
         description: [

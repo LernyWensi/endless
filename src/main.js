@@ -11,6 +11,12 @@ const COMMANDS = {
         flags: null,
     },
 
+    s: {
+        function: s,
+        help: help.SEARCH,
+        flags: null,
+    },
+
     cl: {
         function: cl,
         help: help.CREATE_LINK,
@@ -168,7 +174,7 @@ async function runCommand(userInput) {
     } else {
         outputLine("such command doesn't exists", "error");
         outputLine(
-            `try ${coloredSpan("'h -cl'", "secondary")} for command list`
+            `try ${coloredSpan("'h -cl'", "secondary")} for command list`,
         );
     }
 

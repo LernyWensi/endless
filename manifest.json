@@ -2,7 +2,7 @@
     "version": "1.0",
     "manifest_version": 3,
     "name": "Endless",
-    "description": "Overrides the browsers newtab page with a custom startpage",
+    "description": "Custom startpage for browser",
 
     "icons": {
         "16": "assets/icons/home_icon_16.png",

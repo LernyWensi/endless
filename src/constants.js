@@ -40,7 +40,7 @@ const help = {
 
     SEARCH: {
         usage: 's "(query)"',
-        description: "use to search something",
+        description: "use to search web",
         parameters: "command doesn't have parameters",
         flags: "command doesn't have flags",
     },

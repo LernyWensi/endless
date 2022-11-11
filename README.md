@@ -28,6 +28,8 @@ _Basic info about commands. You can get more in extension by use_ `h` _command._
     use to clear terminal
 -   `h`  
     use to get help
+-   `s "(query)"`  
+    use to search web
 -   `cl (category name) (link name) (link url)`  
     use to create link in specific category, if category doesn't exists, command will create this category
 -   `el (link name) (parameter to edit) (new value)`  

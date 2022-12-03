@@ -1,58 +1,58 @@
 #window {
-    background-color: var(--color-primary);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-    border: var(--color-highlight-primary) 7px ridge;
-    display: flex;
-    flex-direction: column;
+  background-color: var(--color-primary);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  border: var(--color-highlight-primary) 7px ridge;
+  display: flex;
+  flex-direction: column;
 }
 
 #window-title {
-    padding: 10px;
-    border-bottom: var(--color-highlight-primary) 7px ridge;
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--color-secondary);
+  padding: 10px;
+  border-bottom: var(--color-highlight-primary) 7px ridge;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-secondary);
 }
 
 #window-clock {
-    color: var(--color-highlight-additional);
+  color: var(--color-highlight-additional);
 }
 
 #window-quote {
-    color: var(--color-highlight-secondary);
+  color: var(--color-highlight-secondary);
 }
 
 #window-main {
-    width: 900px;
-    height: 500px;
-    display: flex;
+  width: 900px;
+  height: 500px;
+  display: flex;
 }
 
 #window-gif {
-    background-image: url("../assets/gifs/clouds.gif");
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 40%;
-    border-right: var(--color-highlight-primary) 7px ridge;
+  background-image: url("../assets/gifs/clouds.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40%;
+  border-right: var(--color-highlight-primary) 7px ridge;
 }
 
 #window-terminal {
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: clip;
-    padding: 15px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: clip;
+  padding: 15px;
 }
 
 #window-terminal::-webkit-scrollbar {
-    background-color: transparent;
-    width: 4px;
+  background-color: transparent;
+  width: 4px;
 }
 
 #window-terminal::-webkit-scrollbar-button {
-    display: none;
+  display: none;
 }
 
 #window-terminal::-webkit-scrollbar-thumb {
-    background-color: var(--color-additional);
+  background-color: var(--color-additional);
 }

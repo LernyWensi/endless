@@ -1,63 +1,63 @@
 function setUserName(newUserName) {
-    const oldUserName = userName;
+  const oldUserName = userName;
 
-    userName = newUserName;
-    lsWriteUserName();
+  userName = newUserName;
+  lsWriteUserName();
 
-    const promptCursors = $(".prompt-cursor", true);
+  const promptCursors = $(".prompt-cursor", true);
 
-    promptCursors.forEach((cursor) => {
-        cursor.textContent = cursor.textContent.replace(
-            `${oldUserName}@`,
-            `${userName}@`
-        );
-    });
+  promptCursors.forEach((cursor) => {
+    cursor.textContent = cursor.textContent.replace(
+      `${oldUserName}@`,
+      `${userName}@`
+    );
+  });
 }
 
 function setBackground(newBackground) {
-    background = newBackground;
-    lsWriteBackground();
+  background = newBackground;
+  lsWriteBackground();
 
-    document.body.style.backgroundImage = `url(${background})`;
+  document.body.style.backgroundImage = `url(${background})`;
 }
 
 function setGif(newGif) {
-    gif = newGif;
-    lsWriteGif();
+  gif = newGif;
+  lsWriteGif();
 
-    const windowGif = document.getElementById("window-gif");
-    windowGif.style.backgroundImage = `url(${gif})`;
+  const windowGif = document.getElementById("window-gif");
+  windowGif.style.backgroundImage = `url(${gif})`;
 }
 
 function setQuote(newQuote) {
-    quote = newQuote;
-    lsWriteQuote();
+  quote = newQuote;
+  lsWriteQuote();
 
-    const windowQuote = document.getElementById("window-quote");
-    windowQuote.textContent = quote;
+  const windowQuote = document.getElementById("window-quote");
+  windowQuote.textContent = quote;
 }
 
 function setGreetingMessage(newGreetingMessage) {
-    greetingMessage = newGreetingMessage;
-    lsWriteGreetingMessage();
+  greetingMessage = newGreetingMessage;
+  lsWriteGreetingMessage();
 }
 
 function setLineAnimationState(newLineAnimationState) {
-    lineAnimationState = newLineAnimationState;
-    lsWriteLineAnimationState();
+  lineAnimationState = newLineAnimationState;
+  lsWriteLineAnimationState();
 }
 
 function setPromptAnimationState(newPromptAnimationState) {
-    promptAnimationState = newPromptAnimationState;
-    lsWritePromptAnimationState();
+  promptAnimationState = newPromptAnimationState;
+  lsWritePromptAnimationState();
 }
 
 function setOpenLinkDefaultTarget(newOpenLinkDefaultTarget) {
-    openLinkDefaultTarget = newOpenLinkDefaultTarget;
-    lsWriteOpenLinkDefaultTarget();
+  openLinkDefaultTarget = newOpenLinkDefaultTarget;
+  lsWriteOpenLinkDefaultTarget();
 }
 
 function setBookmarksDefaultTarget(newBookmarksDefaultTarget) {
-    bookmarksDefaultTarget = newBookmarksDefaultTarget;
-    lsWriteBookmarksDefaultTarget();
+  bookmarksDefaultTarget = newBookmarksDefaultTarget;
+  lsWriteBookmarksDefaultTarget();
 }

@@ -78,14 +78,41 @@ function checkCommandFlags(command, flagsToCheck) {
   return flagsToCheck.every((flag) => COMMANDS[command].flags.includes(flag));
 }
 
+// check if current item is part of a search query string
+function isInSearchQuery(userInput, currentItemIndex)
+{
+  // if the first item starts with '"' AND any other item (including the first) ends with '"'
+  // (i.e. if there is a search query string in userInput)
+  // THEN check if the current item is part that search query
+  let isInSearchQuery = false;
+  if (userInput[0][0] === "\"") {
+    userInput.forEach( function(item, index) {
+      if (item[item.length - 1] === "\"") {
+        if (currentItemIndex <= index)
+          isInSearchQuery = true;
+      }
+    });
+  }
+  return isInSearchQuery;
+}
+
 function parseUserInputToCommand(userInput) {
   const re = /"([^"]+)"|([^\s]+)/g;
 
   userInput = userInput.trim().replace(/\s +/g, " ");
+
   userInput = userInput.split(" ");
 
   const command = userInput.shift();
-  const flags = userInput.filter((item) => item.length > 1 && item[0] === "-");
+
+  // if using the search command, don't add item as a flag if it starts with a '-'
+  // and is part of a search query string
+  const flags = userInput.filter((item, index) => 
+    command === "s" 
+    ? item.length > 1 && item[0] === "-" && !isInSearchQuery(userInput, index)
+    : item.length > 1 && item[0] === "-"
+    );
+
   const parameters = [];
 
   let noFlagsCommand = userInput

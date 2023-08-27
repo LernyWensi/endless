@@ -173,7 +173,7 @@ async function runCommand(userInput) {
     response = await COMMANDS[command].function(parameters, flags);
   } else {
     outputLine("such command doesn't exists", "error");
-    outputLine(`try ${coloredSpan("'h -cl'", "secondary")} for command list`);
+    outputLine(`try ${coloredSpan("'h'", "secondary")} for command list`);
   }
 
   if (response === false) {

@@ -278,7 +278,7 @@ async function ol(parameters, flags) {
   let linkToOpen;
   switch (targetLinks.length) {
     case 0:
-      outputLine("no such lins found", "error");
+      outputLine("such link not found", "error");
       return;
     case 1:
       linkToOpen = targetLinks[0];
